@@ -6,6 +6,8 @@
 
 > Developer-friendly CLI that converts existing `.env` files into safe `.env.example` templates with human-readable placeholders.
 
+<img src="./screenshot/banner.png" />
+
 ## Why?
 
 Sharing `.env` files is insecure, while keeping `.env.example` files in sync is tedious. `env-example-gen` automates template creation, preserving helpful comments and replacing sensitive values with descriptive placeholders so new teammates know exactly what to provide without seeing secrets.
