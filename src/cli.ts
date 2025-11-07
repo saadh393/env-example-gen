@@ -18,7 +18,7 @@ interface CliOptions {
 const program = new Command();
 
 program
-  .name('env-template-gen')
+  .name('env-example-generator')
   .description('Generate safe .env.example templates from existing .env files.')
   .option('-i, --input <path>', 'Path to the source .env file (defaults to ./\\.env).')
   .option('-o, --output <path>', 'Path for the generated template file.')

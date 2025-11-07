@@ -1,19 +1,23 @@
-# env-template-gen
+# Env Example Generator
+
+[![npm version](https://img.shields.io/npm/v/env-example-generator.svg)](https://www.npmjs.com/package/env-example-generator)
+[![npm downloads](https://img.shields.io/npm/dw/env-example-generator.svg)](https://www.npmjs.com/package/env-example-generator)
+[![license: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
 
 > Developer-friendly CLI that converts existing `.env` files into safe `.env.example` templates with human-readable placeholders.
 
 ## Why?
 
-Sharing `.env` files is insecure, while keeping `.env.example` files in sync is tedious. `env-template-gen` automates template creation, preserving helpful comments and replacing sensitive values with descriptive placeholders so new teammates know exactly what to provide without seeing secrets.
+Sharing `.env` files is insecure, while keeping `.env.example` files in sync is tedious. `env-example-generator` automates template creation, preserving helpful comments and replacing sensitive values with descriptive placeholders so new teammates know exactly what to provide without seeing secrets.
 
 ## Features
 
-- 🔍 Scans any `.env`-style file and extracts variables, keeping comments and blank lines intact.
-- 🔐 Replaces secrets with contextual placeholders (`<YOUR_SECRET_HERE>`, `<PORT IN NUMBER>`, `…`) using smart key detection.
-- 🗃️ Handles single files (default) or every `.env*` file via `--multi`.
-- 💾 Never logs or emits original values—safe for CI and automation.
-- 🪪 Adds a helpful header reminding readers how to use the template.
-- 🧪 Provides exit codes suited for pipelines plus a fully tested, modular codebase.
+-   🔍 Scans any `.env`-style file and extracts variables, keeping comments and blank lines intact.
+-   🔐 Replaces secrets with contextual placeholders (`<YOUR_SECRET_HERE>`, `<PORT IN NUMBER>`, `…`) using smart key detection.
+-   🗃️ Handles single files (default) or every `.env*` file via `--multi`.
+-   💾 Never logs or emits original values—safe for CI and automation.
+-   🪪 Adds a helpful header reminding readers how to use the template.
+-   🧪 Provides exit codes suited for pipelines plus a fully tested, modular codebase.
 
 ## Installation
 
@@ -21,25 +25,25 @@ Use the CLI without installing by running it via `npx`, or add it to your devDep
 
 ```bash
 # Run once
-npx env-template-gen
+npx env-example-generator
 
 # Or install locally
-npm install --save-dev env-template-gen
+npm install --save-dev env-example-generator
 ```
 
 ## Usage
 
 ```bash
-npx env-template-gen [options]
+npx env-example-generator [options]
 ```
 
 ### Common flows
 
-| Scenario | Command |
-| --- | --- |
-| Generate `.env.example` from `.env` in the current directory | `npx env-template-gen` |
-| Read/write custom paths | `npx env-template-gen --input ./config/.env.production --output ./templates/.env.production.example` |
-| Process every `.env*` file (`.env`, `.env.local`, `.env.production`, …) | `npx env-template-gen --multi` |
+| Scenario                                                                | Command                                                                                              |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Generate `.env.example` from `.env` in the current directory            | `npx env-example-generator`                                                                               |
+| Read/write custom paths                                                 | `npx env-example-generator --input ./config/.env.production --output ./templates/.env.production.example` |
+| Process every `.env*` file (`.env`, `.env.local`, `.env.production`, …) | `npx env-example-generator --multi`                                                                       |
 
 ### CLI options
 
@@ -52,18 +56,18 @@ npx env-template-gen [options]
 
 ## Placeholder detection
 
-`env-template-gen` inspects variable names and picks meaningful placeholders:
+`env-example-generator` inspects variable names and picks meaningful placeholders:
 
-| Pattern | Placeholder |
-| --- | --- |
-| `PORT` | `<PORT IN NUMBER>` |
-| `URI`, `URL` | `<PROTOCOL://USERNAME:PASSWORD@HOST/DATABASENAME>` |
-| `HOST` | `<HOSTNAME>` |
-| `PASS`, `PASSWORD`, `SECRET`, `TOKEN`, `KEY` | `<YOUR_SECRET_HERE>` |
-| `USER` | `<USERNAME OR EMAIL>` |
-| `EMAIL` | `<EMAIL_ADDRESS>` |
-| `EXPIRES_IN`, `TIMEOUT` | `<TIME_DURATION>` |
-| _(fallback)_ | `<YOUR_VALUE_HERE>` |
+| Pattern                                      | Placeholder                                        |
+| -------------------------------------------- | -------------------------------------------------- |
+| `PORT`                                       | `<PORT IN NUMBER>`                                 |
+| `URI`, `URL`                                 | `<PROTOCOL://USERNAME:PASSWORD@HOST/DATABASENAME>` |
+| `HOST`                                       | `<HOSTNAME>`                                       |
+| `PASS`, `PASSWORD`, `SECRET`, `TOKEN`, `KEY` | `<YOUR_SECRET_HERE>`                               |
+| `USER`                                       | `<USERNAME OR EMAIL>`                              |
+| `EMAIL`                                      | `<EMAIL_ADDRESS>`                                  |
+| `EXPIRES_IN`, `TIMEOUT`                      | `<TIME_DURATION>`                                  |
+| _(fallback)_                                 | `<YOUR_VALUE_HERE>`                                |
 
 ## Examples
 
@@ -78,7 +82,7 @@ JWT_SECRET=abcd1234
 Generated `.env.example`:
 
 ```
-# Generated by env-template-gen
+# Generated by env-example-generator
 # Copy this file to .env and replace placeholders with real values.
 
 PORT=<PORT IN NUMBER>
@@ -106,4 +110,4 @@ During publishing, npm automatically runs `npm run prepare`, ensuring the TypeSc
 
 ## License
 
-ISC © 2024 env-template-gen contributors
+ISC © 2024 Env Example Generator contributors

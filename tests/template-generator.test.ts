@@ -7,7 +7,7 @@ import { TEMPLATE_HEADER_LINES } from '../src/constants.js';
 import { EnvTemplateGenerator } from '../src/template-generator.js';
 
 async function createTempDir(): Promise<string> {
-  return fs.mkdtemp(path.join(os.tmpdir(), 'env-template-gen-'));
+  return fs.mkdtemp(path.join(os.tmpdir(), 'env-example-generator-'));
 }
 
 async function cleanup(directory: string): Promise<void> {
