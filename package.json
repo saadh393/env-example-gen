@@ -1,0 +1,39 @@
+{
+  "name": "env-template-gen",
+  "version": "1.0.0",
+  "description": "Generate safe .env.example templates from existing .env files.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "env-template-gen": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "ts-node --esm --project tsconfig.json src/cli.ts",
+    "test": "vitest run",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "env",
+    "cli",
+    "dotenv",
+    "template"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
